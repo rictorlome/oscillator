@@ -1,10 +1,11 @@
 const oscillator = o => {
-  const FRAMERATE = 60;
+  const FRAMERATE = 35;
 
   o.setup = () => {
-    o.createCanvas(700, 410);
+    o.createCanvas(o.displayWidth, o.displayHeight * 0.9);
     o.angleMode(o.DEGREES);
     o.frameRate(FRAMERATE);
+    console.log(o.width, o.height);
   };
 
   o.traceCircle = (h, k, rad, sec, draw = false) => {
@@ -41,10 +42,30 @@ const oscillator = o => {
 
   o.draw = () => {
     o.background(10, 9);
-    const circle1Cords = o.traceCircle(o.width / 2, o.height / 2, 200, 10);
-    const circle2Cords = o.traceCircle(o.width / 1.3, o.height / 1.5, 350, 8);
-    const pretzel1Cords = o.tracePretzel1(o.width / 2, o.height / 2, 200, 3);
-    const pretzel2Cords = o.tracePretzel2(o.width / 2, o.height / 2, 200, 6);
+    const circle1Cords = o.traceCircle(
+      o.width / 2.2,
+      o.height / 1.2,
+      o.height / 1.6,
+      10
+    );
+    const circle2Cords = o.traceCircle(
+      o.width / 1.3,
+      o.height / 2,
+      o.height / 1.5,
+      8
+    );
+    const pretzel1Cords = o.tracePretzel1(
+      o.width / 1.7,
+      o.height / 2,
+      o.width / 3,
+      3
+    );
+    const pretzel2Cords = o.tracePretzel2(
+      o.width / 2,
+      o.height / 2,
+      o.width / 2.1,
+      4
+    );
     o.strokeWeight(1);
     o.noFill();
     o.stroke(133, 35, 168);
